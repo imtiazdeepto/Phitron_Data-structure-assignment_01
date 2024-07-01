@@ -1,5 +1,5 @@
-// Liked list
-//  at: Mon 1 july 2024 2:34 am
+// Liked list 
+//  at: Mon 1 july 2024 2:34 am 
 //@handle: Imtiaz Deepto
 #include <bits/stdc++.h>
 #include <iostream>
@@ -30,6 +30,7 @@ void insert_tail(node *&head, int val)
         tmp = tmp->next;
     }
     tmp->next = newNode;
+    // change null to new node address
 }
 void printLinkedlist(node *head)
 {
@@ -47,6 +48,7 @@ void insert_at_position(node *&head, int pos, int val)
     node *temp = head;
     for (int i = 0; i < pos - 2; i++)
     {
+
         temp = temp->next;
         if (temp == NULL)
         {
@@ -112,6 +114,13 @@ void delete_head(node *&head)
          << "Head is Deleted" << endl
          << endl;
 }
+void print_recursive(node *x)
+{
+    if (x == NULL)
+        return;
+    print_recursive(x->next);
+    cout << x->data << " ";
+}
 signed main()
 {
     node *head = NULL;
@@ -122,7 +131,8 @@ signed main()
         cout << "Option 3: Insert at position" << endl;
         cout << "Option 4: Delete at any position" << endl;
         cout << "Option 5: Take input" << endl;
-        cout << "Option 6: Terminate" << endl
+        cout << "Option 6: Print Reversely" << endl;
+        cout << "Option 7: Terminate" << endl
              << endl;
         int op;
         cout << "Choose any option: ";
@@ -146,7 +156,7 @@ signed main()
                  << "Value is Printed" << endl
                  << endl;
         }
-        else if (op == 6)
+        else if (op == 7)
         {
             break;
             cout << endl
@@ -193,6 +203,11 @@ signed main()
                 insert_tail(head, val);
             }
             cout << endl;
+        }
+        else if (op == 6)
+        {
+            print_recursive(head);
+            cout <<endl<<"Reversed Printed...."<<endl<< endl;
         }
         else
         {
